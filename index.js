@@ -191,8 +191,11 @@ function analisarFaturamento(dados) {
 }
 
 const resultadoTres = analisarFaturamento(faturamentoDiario);
-alert(` Resposta da questão 03: \n Menor valor de faturamento: R$ ${resultadoTres.menorValor} \n Maior valor de faturamento: R$ ${resultadoTres.maiorValor} \n Média mensal: R$ ${resultadoTres.mediaMensal.toFixed(2)} \n Dias acima da média: ${resultadoTres.diasAcimaDaMedia}
-  `);
+alert(`Resposta da questão 03: 
+Menor valor de faturamento: R$ ${resultadoTres.menorValor} 
+Maior valor de faturamento: R$ ${resultadoTres.maiorValor} 
+Média mensal: R$ ${resultadoTres.mediaMensal.toFixed(2)} 
+Dias acima da média: ${resultadoTres.diasAcimaDaMedia}`);
 
 // Questão 04
 
