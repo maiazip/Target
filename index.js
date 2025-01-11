@@ -1,47 +1,32 @@
-// Questão 01
-
-// Abordagem 1 - laço de repetição 
-let indice = 13;
-let soma = 0;
-let k = 0;
-
-while (k < indice) {
-    k = k + 1;
-    soma = soma + k;
-}
-
-alert('reposta da questão 01: \n' + soma);
-
-// Abordagem 2 - função 
-function calcularSoma(indice) {
+function questionOne() {
+    let index = 13;
     let soma = 0;
-    for (let i = 1; i <= indice; i++) {
-        soma += i;
-    }
-    alert(`A soma dos números de 1 até ${indice} é: ${soma}`);
+    let x = 0;
+
+    do {
+        x = x + 1;
+        soma = soma + x;
+    } while (x < index);
+
+    alert('A resposta para a questão 01 é:\n' + soma);
 }
 
-// Questão 02
+function questionTwo() {
+    let number = parseInt(prompt("Questão 02:\nDigite um número que deseje saber se pertence a sequência de Fibonacci:"));
+    let a = 0, b = 1;
 
-function pertenceFibonacci(numero) {
-    let a = 0;
-    let b = 1;
-    let c;
-
-    while (c < numero) {
-        c = a + b;
-        a = b;
-        b = c;
+    while (b <= number) {
+        if (b === number) {
+            alert('O número pertence à sequência de Fibonacci.');
+            return true;
+        }
+        let temp = b;
+        b = a + b;
+        a = temp;
     }
-
-    return c === numero ? "O número pertence à sequência de Fibonacci." : "O número não pertence à sequência de Fibonacci.";
+    alert('O número não pertence à sequência de Fibonacci.');
+    return false;
 }
-
-let numeroInformado = 21;
-let resultadoDois = pertenceFibonacci(numeroInformado);
-alert('Resposta da questão 02: \n' + resultadoDois);
-
-// Questão 03
 
 const faturamentoDiario = [
     {
@@ -190,12 +175,11 @@ function analisarFaturamento(dados) {
     };
 }
 
-const resultadoTres = analisarFaturamento(faturamentoDiario);
-alert(`Resposta da questão 03: 
-Menor valor de faturamento: R$ ${resultadoTres.menorValor} 
-Maior valor de faturamento: R$ ${resultadoTres.maiorValor} 
-Média mensal: R$ ${resultadoTres.mediaMensal.toFixed(2)} 
-Dias acima da média: ${resultadoTres.diasAcimaDaMedia}`);
+function exibirResultado() {
+    const resultadoTres = analisarFaturamento(faturamentoDiario);
+    alert(` Resposta da questão 03: \n Menor valor de faturamento: R$ ${resultadoTres.menorValor} \n Maior valor de faturamento: R$ ${resultadoTres.maiorValor} \n Média mensal: R$ ${resultadoTres.mediaMensal.toFixed(2)} \n Dias acima da média: ${resultadoTres.diasAcimaDaMedia}
+    `);
+}
 
 // Questão 04
 
@@ -218,16 +202,19 @@ function calcularPercentual(faturamento) {
     return percentuais;
 }
 
-const percentuaisPorEstado = calcularPercentual(faturamentoPorEstado);
 
-let mensagem = "Resposta da questão 04:\nPercentual de participação por estado:\n";
-for (const estado in percentuaisPorEstado) {
-    mensagem += `${estado}: ${percentuaisPorEstado[estado]}%\n`;
+function exibirResultadoQuatro() {
+    const percentuaisPorEstado = calcularPercentual(faturamentoPorEstado);
+
+    let mensagem = "Resposta da questão 04:\nPercentual de participação por estado:\n";
+    for (const estado in percentuaisPorEstado) {
+        mensagem += `${estado}: ${percentuaisPorEstado[estado]}%\n`;
+    }
+    alert(mensagem);
 }
-alert(mensagem);
 // Questão 05
 
-function inverterString(str) {
+function questionFive(str) {
     let novaString = '';
 
     for (let i = str.length - 1; i >= 0; i--) {
@@ -237,8 +224,9 @@ function inverterString(str) {
     return novaString;
 }
 
-// Exemplo de uso:
-const minhaString = "Hello, world!";
-const stringInvertida = inverterString(minhaString);
-alert('Resposta da questão 05:\n' + stringInvertida);
+function inverterPalavra() {
+    const minhaString = prompt('Questão 05\nDigite uma palavra que deseje inverter: ');
+    const stringInvertida = questionFive(minhaString);
+    alert('A palavra invertida é: ' + stringInvertida);
 
+}
